@@ -1,6 +1,6 @@
 # jmeter-basic-demo
 
-This repository contains the basic information on how you can integrate your jmeter test with the remote repo like github.
+This repository contains the basic information on how you can integrate your jmeter test with the remote repository like github.
 
 ## Basic Steps you have to follow are listed below:
 
