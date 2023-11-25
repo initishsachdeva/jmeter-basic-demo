@@ -1,3 +1,5 @@
+------- Integrate Jmeter with the Github -----------
+
 1. initialize the remote repo
 2. initiatize git init under jmeter installer in local
 3. cloning remote repo in local machine = git clone <remote-repo url>
@@ -6,4 +8,29 @@
 6. create a branch = git checkout -b <branch name>
 7. setup upstream with remote = git push --set-upstream "remote url" <branch-name>
 
+------- Generate HTML Reports in Jmeter -----------
 
+1. Move to the Jmeter bin folder and open cmd prompt
+2. Type command = jmeter -n -t <Test JMX Files> -l <test log files> -e -o <path to output folder> 
+	where	n: non GUI Mode
+			t: location of project files
+		 	l: test log/result file will be generated. Give the path where you want to get that folder/.csv created
+			f: This parameter will "tell" JMeter to overwrite the existing results file and the HTML reporting dashboard folder with the new results.
+			e: generate the html report
+			o: path where html report folder to be created
+			
+			
+jmeter -n -t <jmx file path> -l <Book1.csv path> -f -e -o <HTML_Report\Report path>			
+
+
+------- Integrate Jmeter with CI/CD Pipeline -----------
+
+1. Install Jenkins
+2. Downlaod Plugin = Performance from manage plugins in Jenkins
+3. Go to jmeter bin directory and under user.properties file add below property 
+		jmeter.save.saveservice.output_format=xml
+		
+4. Create your jmeter test
+5. Run Jmter test from cmd line to validate itis running fine
+6. Add job in jenkins	
+	-Jjmeter.save.saveservice.output_format=xml -n -t <jmx file path> -l <TestResult1.jtl path>
